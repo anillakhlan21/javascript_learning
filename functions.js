@@ -70,20 +70,35 @@ console.log(addNumbers(2, 3)); // Output: 5
 function* fibonacci() {
   let current = 0;
   let next = 1;
-
   while (true) {
     yield current;
-    [current, next] = [next, current + next];
+    [current, next] = [next, current + next]; // [1,2]
   }
 }
 
 const fib = fibonacci();
+
 
 console.log(fib.next().value); // Output: 0
 console.log(fib.next().value); // Output: 1
 console.log(fib.next().value); // Output: 1
 console.log(fib.next().value); // Output: 2
 console.log(fib.next().value); // Output: 3
+
+
+/*
+Recursive Function 
+*/
+function facto(num){
+  if(num==1){
+    return 1;
+  }else{
+    return num* facto(num-1); // 5 * facto(4) => 5* 4* 3* 2* 1;
+  }
+}
+
+facto(5); // 5*4*3*2*1
+
 
 /*
 Higher-order Function:
@@ -101,4 +116,9 @@ function multiplyBy(factor) {
 }
 
 const multiplyBy2 = multiplyBy(2);
-console.log(multiplyBy2(5)); // Output: 10
+/*
+const multiplyBy2 = function(number){
+  return number* 2;
+}
+*/
+console.log(multiplyBy2(5)); 
